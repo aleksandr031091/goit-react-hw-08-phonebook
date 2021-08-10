@@ -1,7 +1,7 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import rootReducer from "./rootReducer";
-import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
+import { persistStore } from "redux-persist";
+
 import {
   FLUSH,
   REHYDRATE,
@@ -10,12 +10,6 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-
-const persistConfig = {
-  key: "root",
-  storage,
-  whitelist: [],
-};
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -26,7 +20,7 @@ const middleware = [
 ];
 
 const store = configureStore({
-  reducer: persistReducer(persistConfig, rootReducer),
+  reducer: rootReducer,
   middleware,
   //   devTools: process.env.NODE_ENV !== "production",
 });
