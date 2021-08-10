@@ -1,16 +1,16 @@
 import { createAction } from "@reduxjs/toolkit";
 
-export const registerRequest = createAction("auth/registerRequest");
-export const registerSuccess = createAction("auth/registerSucess");
-export const registerError = createAction("auth/registerError");
+export const registerUserRequest = createAction("auth/registerUserRequest");
+export const registerUserSuccess = createAction("auth/registerUserSuccess");
+export const registerUserError = createAction("auth/registerUserError");
 
-export const loginRequest = createAction("auth/loginRequest");
-export const loginSuccess = createAction("auth/loginSuccess");
-export const loginError = createAction("auth/loginError");
+export const loginUserRequest = createAction("auth/loginUserRequest");
+export const loginUserSuccess = createAction("auth/loginUserSuccess");
+export const loginUserError = createAction("auth/loginUserError");
 
-export const logOutRequest = createAction("auth/logOutRequest");
-export const logOutSuccess = createAction("auth/logOutSuccess");
-export const logOutError = createAction("auth/logOutError");
+export const signOutRequest = createAction("auth/logOutRequest");
+export const signOutSuccess = createAction("auth/logOutSuccess");
+export const signOutError = createAction("auth/logOutError");
 
 export const getCurrentUserRequest = createAction("auth/getCurrentUserRequest");
 export const getCurrentUserSuccess = createAction("auth/getCurrentUserSuccess");

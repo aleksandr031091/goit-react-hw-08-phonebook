@@ -1,5 +1,10 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import {
+  loginUserOperation,
+  registerUserOperation,
+} from "../../redux/auth/authOperations";
 
 const initialState = { name: "", email: "", password: "" };
 class Auth extends Component {
@@ -14,6 +19,10 @@ class Auth extends Component {
 
   onHandleSubmit = (e) => {
     e.preventDefault();
+    this.props.location === "signIn"
+      ? this.props.loginUserOperation(this.state)
+      : this.props.registerUserOperation(this.state);
+    this.setState({ ...initialState });
   };
 
   render() {
@@ -42,7 +51,7 @@ class Auth extends Component {
         <label>
           <input
             type="text"
-            name="pasword"
+            name="password"
             value={password}
             onChange={this.onHandleChange}
             placeholder="Password"
@@ -56,4 +65,6 @@ class Auth extends Component {
   }
 }
 
-export default withRouter(Auth);
+export default connect(null, { registerUserOperation, loginUserOperation })(
+  withRouter(Auth)
+);
