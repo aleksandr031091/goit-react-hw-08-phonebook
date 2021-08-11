@@ -1,7 +1,13 @@
 import React from "react";
-
+import HomePageStyled from "../style/HomePageStyled";
+import bgImage from "../images/bgHome.png";
 const homePage = () => {
-  return <h1>Welcome</h1>;
+  return (
+    <HomePageStyled>
+      <h1 className="title">Pfonebook</h1>
+      <img className="bgImage" src={bgImage} alt="image" width="1000px" />
+    </HomePageStyled>
+  );
 };
 
 export default homePage;

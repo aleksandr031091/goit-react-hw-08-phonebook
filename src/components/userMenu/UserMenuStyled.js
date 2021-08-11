@@ -11,6 +11,7 @@ const UserMenuStyled = styled.div`
     margin-right: 10px;
   }
   .button {
+    margin-left: 10px;
     padding: 10px;
     font-weight: 700;
     color: #ff4b01;
@@ -25,6 +26,9 @@ const UserMenuStyled = styled.div`
   :focus {
     color: #c12127;
     box-shadow: 0px 1px 13px 0px #c12127;
+  }
+  .userAvatar {
+    border-color: transparent;
   }
 `;
 

@@ -2,11 +2,13 @@ import React from "react";
 import { connect } from "react-redux";
 import { logOutUserOperation } from "../../redux/auth/authOperations";
 import UserMenuStyled from "./UserMenuStyled";
+import userAvatar from "../../images/userAvatar.png";
 
 const UserMenu = ({ name, logOutUserOperation }) => {
   return (
     <UserMenuStyled>
       <h3 className="title">Welcome {name.toUpperCase()}</h3>
+      <img src={userAvatar} alt="avatar" width="30px" />
       <button className="button" onClick={() => logOutUserOperation()}>
         LOGOUT
       </button>
