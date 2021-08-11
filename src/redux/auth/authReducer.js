@@ -1,34 +1,55 @@
 import { createReducer } from "@reduxjs/toolkit";
 import {
-  getCurrentUserSuccess,
-  loginUserSuccess,
   registerUserSuccess,
+  registerUserError,
+  loginUserSuccess,
+  loginUserError,
   signOutSuccess,
+  signOutError,
+  getCurrentUserSuccess,
+  getCurrentUserError,
 } from "./authActions";
 
 const authReducer = createReducer(
   {
     name: "",
-    mail: "",
+    email: "",
     idToken: "",
+    error: "",
   },
   {
     [registerUserSuccess]: (_, { payload }) => ({
       name: payload.user.name,
-      mail: payload.user.email,
+      email: payload.user.email,
       idToken: payload.token,
     }),
+
     [loginUserSuccess]: (_, { payload }) => ({
       name: payload.user.name,
-      mail: payload.user.email,
+      email: payload.user.email,
       idToken: payload.token,
     }),
+
     [signOutSuccess]: () => ({
       name: "",
-      mail: "",
+      email: "",
       idToken: "",
     }),
-    [getCurrentUserSuccess]: (_, { payload }) => payload,
+
+    [getCurrentUserSuccess]: (state, { payload }) => ({ ...state, ...payload }),
+
+    [registerUserError]: (_, { payload }) => ({
+      error: payload,
+    }),
+    [loginUserError]: (_, { payload }) => ({
+      error: payload,
+    }),
+    [signOutError]: (_, { payload }) => ({
+      error: payload,
+    }),
+    [getCurrentUserError]: (_, { payload }) => ({
+      error: payload,
+    }),
   }
 );
 

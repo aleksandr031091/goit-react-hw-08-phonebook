@@ -1,8 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-// import PropTypes from "prop-types";
-// import { filterContacts } from "../../redux/contact/contactActions";
-
 import { filterSelector } from "../../../redux/pfonebook/contactsSelectors";
 import { filterContact } from "../../../redux/pfonebook/contactsActions";
 

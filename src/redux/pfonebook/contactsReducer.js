@@ -14,6 +14,9 @@ import {
   updateContactSuccess,
   updateContactError,
   filterContact,
+  resetError,
+  alertContacts,
+  resetAlert,
 } from "../pfonebook/contactsActions";
 
 const contactReducer = createReducer([], {
@@ -21,6 +24,7 @@ const contactReducer = createReducer([], {
   [addContactSuccess]: (state, { payload }) => [...state, payload],
   [deleteContactSuccess]: (state, { payload }) =>
     state.filter((contact) => contact.id !== payload),
+
   //   [updateContactSuccess]: (state, { payload }) => [],
 });
 
@@ -52,15 +56,20 @@ const errorReducer = createReducer("", {
   [getContactsError]: (_, { payload }) => payload,
   [updateContactRequest]: () => true,
   [updateContactError]: (_, { payload }) => payload,
+  [resetError]: () => "",
 });
 
-// export { contactReducer, filterReducer, loadingReducer, errorReducer };
+const alertContact = createReducer("", {
+  [alertContacts]: (_, { payload }) => payload,
+  [resetAlert]: () => "",
+});
 
 const contactsReducer = combineReducers({
   contacts: contactReducer,
   filter: filterReducer,
   loading: loadingReducer,
   error: errorReducer,
+  alert: alertContact,
 });
 
 export default contactsReducer;

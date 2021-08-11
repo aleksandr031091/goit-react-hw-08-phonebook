@@ -1,13 +1,21 @@
 import React from "react";
+import { connect } from "react-redux";
 import Navigation from "../navigation/Navigation";
-
-const Header = () => {
+import UserMenu from "../userMenu/UserMenu";
+import HeaderStyled from "./HeaderStyled";
+const Header = ({ isAuth }) => {
   return (
-    <>
-      <h2>Header</h2>
+    <HeaderStyled>
       <Navigation />
-    </>
+      {isAuth && <UserMenu />}
+    </HeaderStyled>
   );
 };
 
-export default Header;
+const mstp = (state) => {
+  return {
+    isAuth: state.auth.idToken,
+  };
+};
+
+export default connect(mstp)(Header);

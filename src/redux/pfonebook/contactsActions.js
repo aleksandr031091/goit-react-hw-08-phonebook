@@ -18,5 +18,7 @@ export const updateContactError = createAction("@contact/deleteError");
 
 export const filterContact = createAction("@contact/filter");
 
-// export const alertContacts = createAction("contact/alertContacts");
-// export const resetAlert = createAction("contact/resetalert");
+export const resetError = createAction("@contact/resetError");
+
+export const alertContacts = createAction("contact/alertContacts");
+export const resetAlert = createAction("contact/resetalert");

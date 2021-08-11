@@ -1,14 +1,32 @@
-import React from "react";
+import React, { Component } from "react";
 import Main from "./main/Main";
 import Header from "./header/Header";
+import { connect } from "react-redux";
+import { currentUserOperation } from "../redux/auth/authOperations";
 
-const App = () => {
-  return (
-    <>
-      <Header />
-      <Main />
-    </>
-  );
+class App extends Component {
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.idToken) {
+      if (prevProps.idToken !== this.props.idToken) {
+        this.props.currentUserOperation();
+      }
+    }
+  }
+
+  render() {
+    return (
+      <>
+        <Header />
+        <Main />
+      </>
+    );
+  }
+}
+
+const mstp = (state) => {
+  return {
+    idToken: state.auth.idToken,
+  };
 };
 
-export default App;
+export default connect(mstp, { currentUserOperation })(App);

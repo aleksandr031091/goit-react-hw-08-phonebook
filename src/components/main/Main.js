@@ -1,22 +1,42 @@
 import React, { Suspense } from "react";
 import { mainRoutes } from "../../routes/mainRoutes";
-import { Switch, Route } from "react-router-dom";
+import { Switch } from "react-router-dom";
+import PrivateRoute from "../../routes/privateRoutes";
+import PublicRoute from "../../routes/publicRoutes";
+import { connect } from "react-redux";
 
-const Main = () => {
+const Main = ({ isAuth }) => {
   return (
     <Suspense fallback={<p>...loading</p>}>
       <Switch>
-        {mainRoutes.map((route) => (
-          <Route
-            path={route.path}
-            exact={route.exact}
-            component={route.component}
-            key={route.path}
-          />
-        ))}
+        {mainRoutes.map((route) =>
+          route.isPrivat ? (
+            <PrivateRoute
+              path={route.path}
+              exact={route.exact}
+              component={route.component}
+              key={route.path}
+              isAuth={isAuth}
+            />
+          ) : (
+            <PublicRoute
+              path={route.path}
+              exact={route.exact}
+              component={route.component}
+              key={route.path}
+              isAuth={isAuth}
+              restricted={route.restricted}
+            />
+          )
+        )}
       </Switch>
     </Suspense>
   );
 };
 
-export default Main;
+const mstp = (store) => {
+  return {
+    isAuth: store.auth.idToken,
+  };
+};
+export default connect(mstp)(Main);

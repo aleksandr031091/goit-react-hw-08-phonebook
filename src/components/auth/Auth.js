@@ -19,8 +19,9 @@ class Auth extends Component {
 
   onHandleSubmit = (e) => {
     e.preventDefault();
-    this.props.location === "signIn"
-      ? this.props.loginUserOperation(this.state)
+    const { email, password } = this.state;
+    this.props.location.pathname === "/signin"
+      ? this.props.loginUserOperation({ email, password })
       : this.props.registerUserOperation(this.state);
     this.setState({ ...initialState });
   };
@@ -30,15 +31,17 @@ class Auth extends Component {
     const { name, email, password } = this.state;
     return (
       <form onSubmit={this.onHandleSubmit}>
-        <label>
-          <input
-            type="text"
-            name="name"
-            value={name}
-            onChange={this.onHandleChange}
-            placeholder="Name"
-          />
-        </label>
+        {pathname !== "/signin" && (
+          <label>
+            <input
+              type="text"
+              name="name"
+              value={name}
+              onChange={this.onHandleChange}
+              placeholder="Name"
+            />
+          </label>
+        )}
         <label>
           <input
             type="text"
@@ -58,7 +61,7 @@ class Auth extends Component {
           />
         </label>
         <button type="submit">
-          {pathname === "/signIn" ? "Login" : "Register"}
+          {pathname === "/signin" ? "Login" : "Register"}
         </button>
       </form>
     );
