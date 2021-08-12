@@ -6,6 +6,7 @@ import {
   getContacts,
 } from "../../../redux/pfonebook/contactsOperations";
 import { getFilteredContact } from "../../../redux/pfonebook/contactsSelectors";
+import ContactsListStyled from "./ContactsListStyled";
 
 class ContactList extends Component {
   componentDidMount() {
@@ -14,14 +15,19 @@ class ContactList extends Component {
 
   render() {
     return (
-      <ul>
+      <ContactsListStyled>
         {this.props.contacts.map(({ id, name, number }) => (
-          <li key={id}>
+          <li className="items" key={id}>
             <span>{name}</span> : <span>{number}</span>
-            <button onClick={() => this.props.deleteContact(id)}>Delete</button>
+            <button
+              className="button"
+              onClick={() => this.props.deleteContact(id)}
+            >
+              Delete
+            </button>
           </li>
         ))}
-      </ul>
+      </ContactsListStyled>
     );
   }
 }

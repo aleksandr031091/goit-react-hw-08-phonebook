@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const AuthFormStyled = styled.form`
+const ContactsFormStyled = styled.form`
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -15,6 +15,7 @@ const AuthFormStyled = styled.form`
   .label {
     margin-left: auto;
     margin-bottom: 20px;
+
     color: #ff4b01;
   }
   .input {
@@ -22,6 +23,7 @@ const AuthFormStyled = styled.form`
     margin-left: 10px;
     padding: 5px;
     font-size: 15px;
+
     border-color: #ff4b01;
     border-radius: 5px;
     outline: none;
@@ -61,6 +63,11 @@ const AuthFormStyled = styled.form`
 
     transform: scale(1.05);
   }
+  .alert {
+    margin-top: 0;
+    font-weight: 700;
+    color: #af02ff;
+  }
 `;
 
-export default AuthFormStyled;
+export default ContactsFormStyled;

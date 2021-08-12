@@ -34,6 +34,7 @@ class Auth extends Component {
       <AuthFormStyled onSubmit={this.onHandleSubmit}>
         {pathname !== "/signin" && (
           <label className="label">
+            Name
             <input
               className="input"
               type="text"
@@ -45,6 +46,7 @@ class Auth extends Component {
           </label>
         )}
         <label className="label">
+          Email
           <input
             className="input"
             type="text"
@@ -55,6 +57,7 @@ class Auth extends Component {
           />
         </label>
         <label className="label">
+          Password
           <input
             className="input"
             type="text"

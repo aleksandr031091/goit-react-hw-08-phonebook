@@ -10,6 +10,7 @@ import {
   contactsSelector,
   errorSelector,
 } from "../../../redux/pfonebook/contactsSelectors";
+import ContactsFormStyled from "./ContactsFormStyled";
 
 const initialState = { name: "", number: "" };
 
@@ -37,7 +38,7 @@ class ContactForm extends Component {
       )
     ) {
       this.props.alertContacts(
-        `Contact ${this.state.name} is already in contacts`
+        `Contact ${this.state.name.toLocaleUpperCase()} is already in contacts`
       );
     } else {
       this.props.addContact({
@@ -51,11 +52,12 @@ class ContactForm extends Component {
     const { name, number } = this.state;
     return (
       <>
-        <p>{this.props.alert}</p>
-        <form onSubmit={this.onHandleSubmit}>
-          <label>
+        <ContactsFormStyled onSubmit={this.onHandleSubmit}>
+          <p className="alert">{this.props.alert}</p>
+          <label className="label">
             Name
             <input
+              className="input"
               type="text"
               name="name"
               value={name}
@@ -66,9 +68,10 @@ class ContactForm extends Component {
               placeholder="Jacob Mercer"
             />
           </label>
-          <label>
+          <label className="label">
             Phone
             <input
+              className="input"
               type="tel"
               name="number"
               value={number}
@@ -79,8 +82,10 @@ class ContactForm extends Component {
               placeholder="+380993333333"
             />
           </label>
-          <button type="submit">Add contact</button>
-        </form>
+          <button className="button" type="submit">
+            Add contact
+          </button>
+        </ContactsFormStyled>
       </>
     );
   }

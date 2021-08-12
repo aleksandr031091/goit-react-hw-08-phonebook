@@ -4,33 +4,36 @@ import { Switch } from "react-router-dom";
 import PrivateRoute from "../../routes/privateRoutes";
 import PublicRoute from "../../routes/publicRoutes";
 import { connect } from "react-redux";
+import MainStyled from "./MainStyled";
 
 const Main = ({ isAuth }) => {
   return (
-    <Suspense fallback={<p>...loading</p>}>
-      <Switch>
-        {mainRoutes.map((route) =>
-          route.isPrivat ? (
-            <PrivateRoute
-              path={route.path}
-              exact={route.exact}
-              component={route.component}
-              key={route.path}
-              isAuth={isAuth}
-            />
-          ) : (
-            <PublicRoute
-              path={route.path}
-              exact={route.exact}
-              component={route.component}
-              key={route.path}
-              isAuth={isAuth}
-              restricted={route.restricted}
-            />
-          )
-        )}
-      </Switch>
-    </Suspense>
+    <MainStyled>
+      <Suspense fallback={<p>...loading</p>}>
+        <Switch>
+          {mainRoutes.map((route) =>
+            route.isPrivat ? (
+              <PrivateRoute
+                path={route.path}
+                exact={route.exact}
+                component={route.component}
+                key={route.path}
+                isAuth={isAuth}
+              />
+            ) : (
+              <PublicRoute
+                path={route.path}
+                exact={route.exact}
+                component={route.component}
+                key={route.path}
+                isAuth={isAuth}
+                restricted={route.restricted}
+              />
+            )
+          )}
+        </Switch>
+      </Suspense>
+    </MainStyled>
   );
 };
 

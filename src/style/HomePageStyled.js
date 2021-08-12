@@ -1,8 +1,6 @@
-import React from "react";
 import styled from "styled-components";
 
 const HomePageStyled = styled.div`
-  background: linear-gradient(0deg, #ff8801, #ffffff);
   text-align: center;
   .title {
     margin-bottom: 50px;

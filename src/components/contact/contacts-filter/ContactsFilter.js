@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { filterSelector } from "../../../redux/pfonebook/contactsSelectors";
 import { filterContact } from "../../../redux/pfonebook/contactsActions";
+import ContactsFilterStyled from "./ContactsFilterStyled";
 
 const FilterContact = ({ value, setNewFilterContacts }) => {
   const onHandleChange = (e) => {
@@ -9,12 +10,17 @@ const FilterContact = ({ value, setNewFilterContacts }) => {
   };
 
   return (
-    <>
-      <label>
+    <ContactsFilterStyled>
+      <label className="label">
         Find contacts by name
-        <input type="text" value={value} onChange={onHandleChange} />
+        <input
+          className="input"
+          type="text"
+          value={value}
+          onChange={onHandleChange}
+        />
       </label>
-    </>
+    </ContactsFilterStyled>
   );
 };
 

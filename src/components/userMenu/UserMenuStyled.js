@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 const UserMenuStyled = styled.div`
@@ -25,9 +24,10 @@ const UserMenuStyled = styled.div`
   }
   .button:hover,
   :focus {
-    transform: scale(1.05);
     color: #c12127;
     box-shadow: 0px 1px 13px 0px #c12127;
+
+    transform: scale(1.05);
   }
   .userAvatar {
     border-color: transparent;
