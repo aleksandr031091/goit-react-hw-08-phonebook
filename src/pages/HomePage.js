@@ -5,7 +5,7 @@ const homePage = () => {
   return (
     <HomePageStyled>
       <h1 className="title">Pfonebook</h1>
-      <img className="bgImage" src={bgImage} alt="image" width="800px" />
+      <img className="bgImage" src={bgImage} alt="bgimage" width="800px" />
     </HomePageStyled>
   );
 };
