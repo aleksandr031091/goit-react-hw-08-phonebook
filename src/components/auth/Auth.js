@@ -5,6 +5,7 @@ import {
   loginUserOperation,
   registerUserOperation,
 } from "../../redux/auth/authOperations";
+import AuthFormStyled from "./AuthFormStyled";
 
 const initialState = { name: "", email: "", password: "" };
 class Auth extends Component {
@@ -30,40 +31,43 @@ class Auth extends Component {
     const { pathname } = this.props.location;
     const { name, email, password } = this.state;
     return (
-      <form onSubmit={this.onHandleSubmit}>
+      <AuthFormStyled onSubmit={this.onHandleSubmit}>
         {pathname !== "/signin" && (
-          <label>
+          <label className="label">
             <input
+              className="input"
               type="text"
               name="name"
               value={name}
               onChange={this.onHandleChange}
-              placeholder="Name"
+              placeholder="*Rosie Simpson"
             />
           </label>
         )}
-        <label>
+        <label className="label">
           <input
+            className="input"
             type="text"
             name="email"
             value={email}
             onChange={this.onHandleChange}
-            placeholder="Email"
+            placeholder="*rosie@gmail.com"
           />
         </label>
-        <label>
+        <label className="label">
           <input
+            className="input"
             type="text"
             name="password"
             value={password}
             onChange={this.onHandleChange}
-            placeholder="Password"
+            placeholder="*"
           />
         </label>
-        <button type="submit">
+        <button className="button" type="submit">
           {pathname === "/signin" ? "Login" : "Register"}
         </button>
-      </form>
+      </AuthFormStyled>
     );
   }
 }

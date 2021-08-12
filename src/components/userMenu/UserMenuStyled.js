@@ -20,10 +20,12 @@ const UserMenuStyled = styled.div`
     background-color: transparent;
     box-shadow: 0px 1px 13px 0px rgba(255, 79, 0, 1);
     cursor: pointer;
+
     transition: 500ms;
   }
   .button:hover,
   :focus {
+    transform: scale(1.05);
     color: #c12127;
     box-shadow: 0px 1px 13px 0px #c12127;
   }
