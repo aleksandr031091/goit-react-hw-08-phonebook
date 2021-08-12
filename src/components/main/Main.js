@@ -1,9 +1,9 @@
 import React, { Suspense } from "react";
-import { mainRoutes } from "../../routes/mainRoutes";
+import { connect } from "react-redux";
 import { Switch } from "react-router-dom";
+import { mainRoutes } from "../../routes/mainRoutes";
 import PrivateRoute from "../../routes/privateRoutes";
 import PublicRoute from "../../routes/publicRoutes";
-import { connect } from "react-redux";
 import MainStyled from "./MainStyled";
 
 const Main = ({ isAuth }) => {

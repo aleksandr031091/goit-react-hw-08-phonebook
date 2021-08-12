@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import NavigationItemsStyled from "./NavigationItemsStyled";
+
 const NavigationItems = ({
   name,
   path,

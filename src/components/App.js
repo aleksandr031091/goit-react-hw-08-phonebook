@@ -1,7 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import Main from "./main/Main";
 import Header from "./header/Header";
-import { connect } from "react-redux";
 import { currentUserOperation } from "../redux/auth/authOperations";
 
 class App extends Component {

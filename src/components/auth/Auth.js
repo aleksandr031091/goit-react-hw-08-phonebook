@@ -8,6 +8,7 @@ import {
 import AuthFormStyled from "./AuthFormStyled";
 
 const initialState = { name: "", email: "", password: "" };
+
 class Auth extends Component {
   state = { ...initialState };
 
