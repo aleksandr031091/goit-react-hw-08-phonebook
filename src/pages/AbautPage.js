@@ -1,23 +1,17 @@
 import React from "react";
+import AbautPageStyled from "../style/AbautPageStyled";
 
 const AbautPage = () => {
   return (
-    <>
-      <h2>Abaut</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam
-        dolorum, odit deleniti quas accusamus nisi fugit in exercitationem
-        maiores magni hic commodi iure eius enim, nulla fuga molestias!
-        Laudantium hic dolor, cumque inventore dicta repellat rem aliquid,
-        eligendi laboriosam, ullam ipsa! Hic vero impedit quaerat veritatis
-        totam eligendi repellendus nihil amet, aliquid error quisquam similique
-        nemo, dignissimos dicta facilis esse, omnis harum velit debitis? Iusto
-        iste dolorem veniam odio nisi, velit voluptatem fugiat cum quibusdam
-        ipsum sapiente repellendus consectetur nemo aut sunt eos explicabo
-        dignissimos magni. Hic, aut delectus sint corrupti itaque asperiores at
-        optio nihil ratione a ut eius.
+    <AbautPageStyled>
+      <h3 className="title">Interesting fact</h3>
+      <p className="description">
+        Telephone directories are a type of city directory. ... The first
+        telephone directory, consisting of a single piece of cardboard, was
+        issued on 21 February 1878; it listed 50 individuals, businesses, and
+        other offices in New Haven, Connecticut that had telephones
       </p>
-    </>
+    </AbautPageStyled>
   );
 };
 
