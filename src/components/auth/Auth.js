@@ -61,7 +61,7 @@ class Auth extends Component {
           Password
           <input
             className="input"
-            type="text"
+            type="password"
             name="password"
             value={password}
             onChange={this.onHandleChange}
